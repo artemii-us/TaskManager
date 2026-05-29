@@ -37,6 +37,8 @@ class TaskService:
     def get_task_by_id(self, db, id: int) -> TaskDTO:
         repository = TaskRepository(db)
         task = repository.get_task_by_id(id)
+        if not task:
+            return None
         return to_dto(task)
 
     def delete_task(self, db, task_id: int) -> bool:

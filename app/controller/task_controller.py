@@ -31,7 +31,10 @@ def update_task(
 
 @router.get("/tasks/{task_id}")
 def get_task(task_id: int, db: Session = Depends(get_connection)):
-    return task_service.get_task_by_id(db=db, id=task_id)
+    task = task_service.get_task_by_id(db=db, id=task_id)
+    if not task:
+        return {"error": "Task not found"}
+    return task
 
 
 @router.delete("/tasks/{task_id}")
