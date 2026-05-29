@@ -33,7 +33,7 @@ After startup, the service will be available at:
 
 This project uses SQLite:
 - No separate database container is required
-- The database file is created automatically inside the project (e.g. app.db or database.db)
+- The database file is created automatically inside the project
 
 ---
 
